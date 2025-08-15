@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* فرض قيم آمنة للثيم لضمان عودة الألوان حتى مع تعطل preset */
+:root {
+  /* خلفية بنفسجية غامقة تميل للسواد */
+  --background: oklch(12% 0.05 280);
+  --foreground: oklch(98% 0.01 0);
+
+  /* بطاقات بنفسجية غامقة مع شفافية */
+  --card: oklch(16% 0.04 285);
+  --card-foreground: oklch(98% 0.01 0);
+
+  /* منبثقات */
+  --popover: oklch(15% 0.04 280);
+  --popover-foreground: oklch(98% 0.01 0);
+
+  /* اللون الأساسي بنفسجي */
+  --primary: oklch(65% 0.18 285);
+  --primary-foreground: oklch(98% 0.01 0);
+
+  /* ثانوي */
+  --secondary: oklch(20% 0.03 280);
+  --secondary-foreground: oklch(98% 0.01 0);
+
+  /* مكتوم */
+  --muted: oklch(18% 0.03 280);
+  --muted-foreground: oklch(75% 0.02 0);
+
+  /* تحديد */
+  --accent: oklch(25% 0.05 285);
+  --accent-foreground: oklch(98% 0.01 0);
+
+  /* تدميري */
+  --destructive: oklch(55% 0.15 20);
+  --destructive-foreground: oklch(98% 0.01 0);
+
+  /* حدود بيضاء شفافة جداً */
+  --border: oklch(98% 0.01 0 / 0.15);
+  --input: oklch(98% 0.01 0 / 0.12);
+  --ring: oklch(65% 0.18 285);
+
+  --radius: 0.6rem;
+
+  /* ألوان الشريط الجانبي */
+  --sidebar: oklch(14% 0.04 280);
+  --sidebar-foreground: oklch(98% 0.01 0);
+  --sidebar-primary: oklch(65% 0.18 285);
+  --sidebar-primary-foreground: oklch(98% 0.01 0);
+  --sidebar-accent: oklch(20% 0.03 280);
+  --sidebar-accent-foreground: oklch(98% 0.01 0);
+  --sidebar-border: oklch(98% 0.01 0 / 0.12);
+  --sidebar-ring: oklch(65% 0.18 285);
+}
+
+.dark {
+  /* نفس القيم للوضع المظلم */
+  --background: oklch(12% 0.05 280);
+  --foreground: oklch(98% 0.01 0);
+
+  --card: oklch(16% 0.04 285);
+  --card-foreground: oklch(98% 0.01 0);
+
+  --popover: oklch(15% 0.04 280);
+  --popover-foreground: oklch(98% 0.01 0);
+
+  --primary: oklch(65% 0.18 285);
+  --primary-foreground: oklch(98% 0.01 0);
+
+  --secondary: oklch(20% 0.03 280);
+  --secondary-foreground: oklch(98% 0.01 0);
+
+  --muted: oklch(18% 0.03 280);
+  --muted-foreground: oklch(75% 0.02 0);
+
+  --accent: oklch(25% 0.05 285);
+  --accent-foreground: oklch(98% 0.01 0);
+
+  --destructive: oklch(55% 0.15 20);
+  --destructive-foreground: oklch(98% 0.01 0);
+
+  --border: oklch(98% 0.01 0 / 0.15);
+  --input: oklch(98% 0.01 0 / 0.12);
+  --ring: oklch(65% 0.18 285);
+
+  /* ألوان الشريط الجانبي */
+  --sidebar: oklch(14% 0.04 280);
+  --sidebar-foreground: oklch(98% 0.01 0);
+  --sidebar-primary: oklch(65% 0.18 285);
+  --sidebar-primary-foreground: oklch(98% 0.01 0);
+  --sidebar-accent: oklch(20% 0.03 280);
+  --sidebar-accent-foreground: oklch(98% 0.01 0);
+  --sidebar-border: oklch(98% 0.01 0 / 0.12);
+  --sidebar-ring: oklch(65% 0.18 285);
+}
+
+/* ضمان ملء الارتفاع والتلوين لكل الجذور */
+@layer base {
+  /* حماية الثيم: تفعيل الخلفية والنص والحدود مباشرة من المتغيرات */
+  html,
+  body {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+    min-height: 100dvh;
+  }
+
+  /* بنية عامة وحدود خفيفة لضبط التقسيم */
+  body {
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* عناصر تفاعلية تتبع متغيرات الثيم مباشرة */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    color: var(--foreground);
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+  }
+
+  button {
+    background-color: color-mix(in oklab, var(--primary) 18%, var(--background));
+    color: var(--foreground);
+    border: 1px solid color-mix(in oklab, var(--primary) 40%, var(--border));
+  }
+
+  /* روابط وحالات hover */
+  a:hover,
+  button:hover {
+    filter: brightness(1.05);
+  }
+
+  /* حلقات التركيز تستخدم --ring بشكل مباشر */
+  :is(button, a, input, select, textarea):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring), transparent 50%);
+  }
+
+  /* بطاقات عامة عند غياب bg-card/text-card-foreground */
+  .card-fallback {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+  }
+}
+
+@layer base {
+  html, body, #__next, :where(main) {
+    min-height: 100dvh;
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+  }
+
+  .surface, .card, .card-fallback {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid color-mix(in oklab, var(--primary), var(--border) 35%);
+    border-radius: var(--radius);
+  }
+
+  .input, input, select, textarea {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+  }
+}
+
+/* nprogress styles */
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: var(--ring);
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  box-shadow: 0 0 12px color-mix(in oklab, var(--ring), transparent 40%);
+}
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--ring), 0 0 5px var(--ring);
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+#nprogress .spinner {
+  display: none; /* نخفي السبنر للحفاظ على بساطة الواجهة */
+  position: fixed;
+  z-index: 9999;
+  top: 15px;
+  right: 15px;
+}
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  border-top-color: var(--ring);
+  border-left-color: var(--ring);
+  border-radius: 50%;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+@keyframes nprogress-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* إصلاحات إضافية للتخطيط */
+@layer utilities {
+  .z-sidebar { z-index: 10; }
+  .z-header { z-index: 20; }
+  .z-dropdown { z-index: 30; }
+  .z-modal { z-index: 40; }
+  .z-toast { z-index: 50; }
+  .z-tooltip { z-index: 60; }
+}
+
+/* إصلاح الشريط الجانبي للجهة اليمنى في RTL */
+[data-side="right"] + [data-slot="sidebar-inset"] {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+@media (min-width: 768px) {
+  [data-side="right"][data-variant="inset"] + [data-slot="sidebar-inset"] {
+    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  [data-side="right"][data-variant="inset"][data-state="collapsed"] + [data-slot="sidebar-inset"] {
+    margin-right: 0.5rem !important;
+  }
+}
+
+/* إصلاح التداخل للقوائم المنسدلة */
+[data-radix-popper-content-wrapper] {
+  z-index: 30 !important;
+}
+
+[data-radix-portal] > * {
+  z-index: 40 !important;
+}
+
+/* تحسين تجربة المستخدم */
+.sidebar-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next/**",
+    "src/app/api/reports/**",
+    "src/app/api/posts/**",
+    "src/app/api/messages/**",
+    "src/app/api/leaders/**",
+    "src/app/api/telegram/**",
+    "src/app/api/setup/**",
+    "src/app/api/join-requests/**",
+    "src/app/api/my-activity/**",
+    "src/app/api/my-activities/**",
+    "src/app/api/my-individuals/**",
+    "prisma/dummy-data.ts"
+  ]
+}

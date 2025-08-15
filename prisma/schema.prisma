@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model leaders {
+  id             Int      @id @default(autoincrement())
+  full_name      String
+  residence      String?
+  phone          String?
+  workplace      String?
+  center_info    String?
+  station_number String?
+  votes_count    Int      @default(0)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+}
+
+model persons {
+  id             Int      @id @default(autoincrement())
+  leader_name    String
+  full_name      String
+  residence      String?
+  phone          String?
+  workplace      String?
+  center_info    String?
+  station_number String?
+  votes_count    Int      @default(0)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  @@index([leader_name], map: "idx_persons_leader_name")
+  @@index([phone], map: "idx_persons_phone")
+  @@index([station_number], map: "idx_persons_station_number")
+  @@index([created_at], map: "idx_persons_created_at")
+  @@index([leader_name, id], map: "idx_persons_leader_name_id")
+  @@index([phone], map: "phone_idx")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}

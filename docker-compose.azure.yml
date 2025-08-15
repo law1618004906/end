@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  admin-app:
+    image: endacr1754695871.azurecr.io/admin-app:v1.19-prod
+    container_name: admin-app-production
+    ports:
+      - "9000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:/app/prisma-data/production.db
+      - APPINSIGHTS_INSTRUMENTATIONKEY=33dbc1cb-ae36-4255-80f6-b45ffada617b
+      - NEXT_PUBLIC_AZURE_INSTRUMENTATION_KEY=33dbc1cb-ae36-4255-80f6-b45ffada617b
+      - ENABLE_GPT5_PREVIEW=true
+      - NEXT_PUBLIC_ENABLE_GPT5_PREVIEW=true
+    volumes:
+      - ./data:/app/prisma-data
+      - ./logs:/app/logs
+      - ./backups:/app/backups
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
+
+volumes:
+  data:
+    driver: local
+  logs:
+    driver: local
+  backups:
+    driver: local
